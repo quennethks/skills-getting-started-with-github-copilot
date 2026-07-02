@@ -44,8 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const activityCard = document.createElement("div");
         activityCard.className = "activity-card";
 
-        const spotsLeft = details.max_participants - details.participants.length;
         const participants = Array.isArray(details.participants) ? details.participants : [];
+        const maxParticipants = Number(details.max_participants) || 0;
+        const spotsLeft = maxParticipants - participants.length;
 
         const participantsHtml = participants.length
           ? `
